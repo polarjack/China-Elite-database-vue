@@ -1,106 +1,104 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script
-      src="https://code.jquery.com/jquery-3.1.1.min.js"
-      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-      crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+<head>
+  <meta charset="utf-8">
+  <!--Import Google Icon Font-->
+  <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 
-    <title>test</title>
-  </head>
-  <style media="screen">
-    html {
-      font-family: Microsoft JhengHei !important;
-    }
-  </style>
-  <body>
-    <div class="container">
+  <!-- Compiled and minified JavaScript -->
+  <script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.js"></script>
+
+  <title>test</title>
+</head>
+<style media="screen">
+  html {
+    font-family: Microsoft JhengHei !important;
+  }
+</style>
+
+<body>
+  <div class="container">
     <h1>China Elite Database</h1>
     <h1>邏輯說明</h1>
     <div class="row">
-       <div class="col s12 m8">
-         <div class="card">
-           <div class="card-content">
-             <span class="card-title" style="display:inline">Query Card</span>
-             <div class="row">
+      <div class="col s12 m8">
+        <div id="card-example" class="card">
+          <div class="card-content">
+            <span class="card-title" style="display:inline">Query Card</span>
+            <div class="row">
 
-               <div class="input-field col s6">
-                 <label for="fromDate">開始日期</label>
-                 <input type="date" class="datepicker" name="fromDate" value="">
-               </div>
-               <div class="input-field col s6">
-                 <label for="toDate">結束日期</label>
-                 <input type="date" class="datepicker" name="toDate" value="">
-               </div>
-             </div> <!-- end of card row head -->
-             <!-- <a class="btn-floating waves-effect waves-light red"><i class="material-icons">add</i></a> -->
+              <div class="input-field col s6">
+                <label for="fromDate">開始日期</label>
+                <input id="fromDate" v-model="fromDate" type="text" name="fromDate">
+              </div>
+              <div class="input-field col s6">
+                <label for="toDate">結束日期</label>
+                <input id="toDate" v-model="toDate" type="text" name="toDate">
+              </div>
+            </div>
+            <!-- end of card row head -->
+            <!-- <a class="btn-floating waves-effect waves-light red"><i class="material-icons">add</i></a> -->
 
-             <div style="float:right;">
-              <input name="type" type="radio" id="test1" value="include" checked/>
-              <label for="test1">包含</label>
+            <div style="float:right;">
+              <input v-model="mode" type="radio" id="mode1" value="include" />
+              <label for="mode1">包含</label>
 
-              <input name="type" type="radio" id="test2" value="not_include"/>
-              <label for="test2">不包含</label>
-             </div>
+              <input v-model="mode" type="radio" id="mode2" value="not_include" />
+              <label for="mode2">不包含</label>
+            </div>
 
-             <br>
-             <div class="row" >
-               <div id="todo-list-example">
-               <!-- <div class="input-field"> -->
-                 <label for="last_name1">INPUT</label>
-                 <input
-                    v-model="newTodoText"
-                    v-on:keyup.enter="addNewTodo"
-                    placeholder=""
-                    id="last_name1" type="text" class="validate"
-                 >
-               <!-- </div> -->
-               <div class="collection">
-                 <div class="collection-item"
-                 is="todo-item"
-                 v-for="(todo, index) in todos"
-                 v-bind:title="todo"
-                 v-on:remove="todos.splice(index, 1)"
-                 ><i class="material-icons right">delete</i></div>
-               </div>
-             </div>
-             </div> <!-- end of card row text-->
-           </div> <!-- end of card-content -->
-         </div> <!-- end of card -->
-       </div> <!-- end of col -->
-     </div>  <!-- end of row -->
+            <br>
+            <div class="row">
+              <div>
+                <!-- <div class="input-field"> -->
+                <label for="last_name1">INPUT</label>
+                <input v-model="newWord" v-on:keyup.enter="addNewWord" placeholder="" id="last_name1" type="text" class="validate">
+                <!-- </div> -->
+                <div class="collection">
+                  <div class="collection-item" is="word-item" v-for="(word, index) in words" v-bind:title="word" v-on:remove="words.splice(index, 1)"><i class="material-icons right">delete</i></div>
+                </div>
+              </div>
+            </div>
+            <!-- end of card row text-->
+          </div>
+          <!-- end of card-content -->
+        </div>
+        <!-- end of card -->
+      </div>
+      <!-- end of col -->
+    </div>
+    <!-- end of row -->
 
-      <button class="btn waves-effect waves-light blue darken-4" style="float:right;"type="submit" name="action">Submit
+    <button id="submit-button" class="btn waves-effect waves-light blue darken-4" style="float:right;" type="submit" name="action">Submit
         <i class="material-icons right">send</i>
       </button>
-      <button class="btn waves-effect waves-light" style="float:right;" type="button" name="action">新增
+    <button class="btn waves-effect waves-light" style="float:right;" type="button" name="action">新增
         <i class="material-icons right">add</i>
       </button>
-   <br>
-   <br>
+    <br>
+    <br>
 
 
-  </div>  <!-- end of container -->
+  </div>
+  <!-- end of container -->
 
-  </body>
-  <script type="text/javascript">
-  $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 100, // Creates a dropdown of 15 years to control year
-    format: 'yyyy/mm/dd'
-  });
-  </script>
-  <script src="index.js" type="text/javascript"></script>
+</body>
+<script type="text/javascript">
+  // jQuery(function () {
+  //   jQuery('.datepicker').pickadate({
+  //     selectMonths: true, // Creates a dropdown to control month
+  //     selectYears: 100, // Creates a dropdown of 15 years to control year
+  //     format: 'yyyy/mm/dd'
+  //   })
+  // })
+</script>
+<script src="index.js" type="text/javascript"></script>
 
-  </script>
+</script>
 
 </html>
