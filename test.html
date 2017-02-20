@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
+
+    <title>test</title>
+  </head>
+  <style media="screen">
+    html {
+      font-family: Microsoft JhengHei !important;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <div id="todo-list-example">
+    <input
+      v-model="newTodoText"
+      v-on:keyup.enter="addNewTodo"
+      placeholder="Add a todo"
+    >
+    <ul>
+      <li
+        is="todo-item"
+        v-for="(todo, index) in todos"
+        v-bind:title="todo"
+        v-on:remove="todos.splice(index, 1)"
+      ></li>
+    </ul>
+  </div>
+  </div>  <!-- end of container -->
+
+
+  <div class="row">
+         <div class="col s12 m8">
+           <div class="card">
+             <div class="card-content">
+               <span class="card-title" style="display:inline">Query Card</span>
+               <div class="row">
+
+                 <div class="input-field col s6">
+                   <label for="predate">開始日期</label>
+                   <input type="date" class="datepicker" name="predate" value="">
+                 </div>
+                 <div class="input-field col s6">
+                   <label for="lastdate">結束日期</label>
+                   <input type="date" class="datepicker" name="lastdate" value="">
+                 </div>
+               </div> <!-- end of card row head -->
+               <!-- <a class="btn-floating waves-effect waves-light red"><i class="material-icons">add</i></a> -->
+
+               <div style="float:right;">
+                <input name="group1" type="radio" id="test1" />
+                <label for="test1">包含</label>
+
+                <input name="group1" type="radio" id="test2" />
+                <label for="test2">不包含</label>
+               </div>
+
+               <br>
+               <div class="row">
+                 <div class="input-field">
+                   <label for="last_name1">INPUT</label>
+                   <input id="last_name1" type="text" class="validate">
+                 </div>
+                 <div class="collection">
+                   <div class="collection-item">input<i class="material-icons right">delete</i></div>
+                   <div class="collection-item">input<i class="material-icons right">delete</i></div>
+                   <div class="collection-item">input<i class="material-icons right">delete</i></div>
+                 </div>
+               </div> <!-- end of card row text-->
+             </div> <!-- end of card-content -->
+           </div> <!-- end of card -->
+         </div> <!-- end of col -->
+       </div>  <!-- end of row -->
+  </body>
+  <script src="test.js" type="text/javascript"></script>
+</html>

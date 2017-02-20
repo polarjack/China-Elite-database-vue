@@ -21,10 +21,6 @@
     html {
       font-family: Microsoft JhengHei !important;
     }
-    #input-icon {
-      position: absolute !important;
-      float: right !important;
-    }
   </style>
   <body>
     <div class="container">
@@ -46,7 +42,7 @@
                  <input type="date" class="datepicker" name="lastdate" value="">
                </div>
              </div> <!-- end of card row head -->
-             <a class="btn-floating waves-effect waves-light red"><i class="material-icons">add</i></a>
+             <!-- <a class="btn-floating waves-effect waves-light red"><i class="material-icons">add</i></a> -->
 
              <div style="float:right;">
               <input name="group1" type="radio" id="test1" />
@@ -56,21 +52,16 @@
               <label for="test2">不包含</label>
              </div>
 
+             <br>
              <div class="row">
                <div class="input-field">
-                 <i class="material-icons prefix">delete</i>
                  <label for="last_name1">INPUT</label>
                  <input id="last_name1" type="text" class="validate">
                </div>
-               <div class="input-field">
-                 <i class="material-icons prefix">delete</i>
-                 <label for="last_name2">INPUT</label>
-                 <input id="last_name2" type="text" class="validate">
-               </div>
-               <div class="input-field">
-                 <i class="material-icons prefix">delete</i>
-                 <label for="last_name3">INPUT</label>
-                 <input id="last_name3" type="text" class="validate">
+               <div class="collection">
+                 <div class="collection-item">input<i class="material-icons right">delete</i></div>
+                 <div class="collection-item">input<i class="material-icons right">delete</i></div>
+                 <div class="collection-item">input<i class="material-icons right">delete</i></div>
                </div>
              </div> <!-- end of card row text-->
            </div> <!-- end of card-content -->
@@ -96,7 +87,6 @@
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 100 // Creates a dropdown of 15 years to control year
   });
-
   </script>
 
 </html>
