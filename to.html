@@ -60,13 +60,13 @@
 
                 <div style="float:right;">
                   <input v-model="card.mode" type="radio" value="include" />
-                  <label for="mode1">包含</label>
+                  <label v-on:click="changeMode(cindex, 'include')">包含</label>
 
                   <input v-model="card.mode" type="radio" value="not_include" />
-                  <label for="mode2">不包含</label>
+                  <label v-on:click="changeMode(cindex, 'not_include')">不包含</label>
                 </div>
                 <div class="row">
-                  <label for="last_name1">INPUT</label>
+                  <label>字詞</label>
                   <input v-model="card.inputWord" v-on:keyup.enter="addWord(cindex)" placeholder="" type="text" class="validate">
                   <div class="collection">
                     <!-- <div v-for="(word, windex) in words"> -->

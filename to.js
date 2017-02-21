@@ -30,20 +30,23 @@ var cards = new Vue({
 		},
 		deleteWord: function (cindex, windex) {
 			this.cards[cindex].words.splice(windex, 1)
+		},
+		changeMode: function (cindex, mode) {
+			this.cards[cindex].mode = mode
 		}
 	}
 })
 
 function POST(url, data, callback, failback) {
-  return jQuery
-    .ajax(url, {
-      method: 'POST',
-      cache: false,
-      data: data,
-      crossDomain: true
-    })
-    .done(callback)
-    .fail(failback)
+	return jQuery
+		.ajax(url, {
+			method: 'POST',
+			cache: false,
+			data: data,
+			crossDomain: true
+		})
+		.done(callback)
+		.fail(failback)
 }
 
 jQuery(function () {
@@ -60,7 +63,7 @@ jQuery(function () {
 				}
 			})
 		}, function (res) {
-			console.log(JSON.stringify(res, null, 2))
+			// console.log(JSON.stringify(res, null, 2))
 		})
 	})
 })
