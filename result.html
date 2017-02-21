@@ -16,11 +16,15 @@
 </head>
 
 <body>
-    <div>
-        <table>
+  <div class="container">
+    <h1>RESULT</h1>
+
+    <!-- <button v-on:click="selectAllOrNot">全選</button> -->
+    <div class="card">
+        <table class="striped highlight centered">
             <thead>
                 <tr>
-                    <th width="100">姓名</th>
+                    <th>姓名</th>
                     <th>照片</th>
                     <th>現任職務</th>
                     <th>連結</th>
@@ -28,6 +32,17 @@
                 </tr>
             </thead>
             <tbody id="table-body">
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button v-on:click="exportData">下載</button></td>
+                <td>
+                  <button type="button" v-on:click="selectAllOrNot">全選</button>
+
+                </td>
+              </tr>
+
                 <tr v-for="(person, pindex) in people">
                     <td>{{person.name}}</td>
                     <td style="width: 200px">
@@ -44,6 +59,7 @@
                 </tr>
             </tbody>
         </table>
+    </div>
     </div>
     <script src="./result.js"></script>
 
