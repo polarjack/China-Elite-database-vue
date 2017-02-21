@@ -12,6 +12,7 @@ Vue.component('todo-item', {
   ',
   props: ['title']
 })
+
 new Vue({
   el: '#todo-list-example',
   data: {
