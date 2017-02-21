@@ -24,28 +24,35 @@
 <body>
 
 
-  <div class="container">
-
-    <!-- </div>
-  <div id="field">
-  	<div v-for="(card, cindex) in cards">
-  		<input v-for="(word, windex) in card.words" v-model="word.content" class="word" type="text" />
-  		<button v-on:click="addWord(cindex)">AddWord</button>
-  	</div>
-  	<button v-on:click="addCard">AddCard</button>
-  </div>
-</div> -->
-
-
-
     <div class="container" id="field">
+      <h1>中共精英資料庫搜尋平台</h1>
+
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="logic.img">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">使用說明<i class="material-icons right">more_vert</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">說明<i class="material-icons right">close</i></span>
+          <h5>1. <span class="green-text">字卡</span>與<span class="green-text">字卡</span>之間為 <span class="red-text">AND</span> 之關係</h5>
+          <h5>2. <span class="green-text">字詞</span>與<span class="green-text">字詞</span>之間為 <span class="red-text">OR</span> 之關係</h5>
+          <h5>3. 有<span class="blue-text">包含</span>與<span class="blue-text">不包含</span>的選項</h5>
+          <h5>4. 可以有若干張字卡與字詞</h5>
+          <h5>5. 字卡與字詞皆可刪除</h5>
+          <h5>6. 開始日期與結束日期<span class="red-text">可為空白</span></h5>
+
+        </div>
+      </div>
+      <br>
+
       <div v-for="(card, cindex) in cards">
         <div class="row">
-          <div class="col s12 m8">
+          <div class="col s12 m12">
             <div class="card">
               <div class="card-content">
-
-                <span class="card-title" style="display:inline">Query Card<i class="material-icons" v-on:click="deleteCard(cindex)" style="float:right;">close</i></span>
+                <span class="card-title" style="display:inline">搜尋字卡<i class="material-icons" v-on:click="deleteCard(cindex)" style="float:right;">close</i></span>
                 <div class="row">
 
                   <div class="input-field col s6">

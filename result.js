@@ -95,3 +95,8 @@ jQuery(function () {
         })
     })
 })
+
+
+function goBack() {
+    window.location.href = window.location.origin + '/to.html'
+}
