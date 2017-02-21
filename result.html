@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!--Import Google Icon Font-->
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="//code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.js"></script>
+
+    <title>result</title>
+</head>
+
+<body>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th width="100">姓名</th>
+                    <th>照片</th>
+                    <th>現任職務</th>
+                    <th>連結</th>
+                    <th>匯出選取</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <tr v-for="(person, pindex) in people">
+                    <td>{{person.name}}</td>
+                    <td style="width: 200px">
+                        <img v-bind:src="person.imgsrc" style="max-width: 100px">
+                    </td>
+                    <td style="max-width: 400px">{{ (person.currentStatusSet.map(function(statusSet){return statusSet.content}).join('\n')) }}</td>
+                    <td>
+                        <a v-bind:href="person.url">連結</a>
+                    </td>
+                    <td>
+                        <input type="checkbox" v-model="person.checked" v-bind:id="pindex + '-checked'" class="filled-in">
+                        <label v-bind:for="pindex + '-checked'"></label>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="./result.js"></script>
+
+</body>
+
+</html>
