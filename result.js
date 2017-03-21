@@ -51,14 +51,14 @@ var people = new Vue({
             .map((i) => [i.name,i.pingyingname,
               i.hometown,i.profession,i.degree,i.abroadexp,i.abroadcountry,
               i.currentStatusSet.map((c) => {
-                return c.startTime.concat(" ").concat(c.endTime).concat(" ").concat(c.content);
-              }).join('，'),
+                return c.startTime.concat("~@").concat(" ").concat(c.content);
+              }).join(' || '),
               i.careerHistorySet.map((c) =>{
-                return c.startTime.concat(" ").concat(c.endTime).concat(" ").concat(c.content);
-              }).join('，'),
+                return c.startTime.concat("~").concat(c.endTime).concat(" ").concat(c.content);
+              }).join(' || '),
               i.studyHistorySet.map((c) => {
-                return c.startTime.concat(" ").concat(c.endTime).concat(" ").concat(c.content);
-              }).join('，'),
+                return c.startTime.concat("~").concat(c.endTime).concat(" ").concat(c.content);
+              }).join(' || '),
               i.race ,i.birthday,i.alive,i.zuzhi,i.party,i.enterparty,i.gongchintuan,i.url,i.relation,i.other].join(','))
 
           var rows = firstRow.concat(otherRows)
