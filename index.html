@@ -69,11 +69,9 @@
               </div>
               <div class="row">
                 <label>字詞</label>
-                <input v-model="card.inputWord" v-on:keyup.enter="addWord(cindex)" placeholder="" type="text" class="validate">
+                <input v-model="card.inputWord" v-on:keyup.enter="addWord(cindex)" placeholder="輸入完之後請按enter" type="text" class="validate">
                 <div class="collection">
-                  <!-- <div v-for="(word, windex) in words"> -->
                   <div v-for="(word, windex) in card.words" class="collection-item">{{word.content}}<i v-on:click="deleteWord(cindex, windex)" class="material-icons right">delete</i></div>
-                  <!-- </div> -->
                 </div>
               </div>
             </div>
@@ -88,9 +86,10 @@
     <button id="submit-button" class="btn waves-effect waves-light blue darken-4" style="float:right;" type="submit" name="action">送出
         <i class="material-icons right">send</i>
       </button>
-    <button class="btn waves-effect waves-light" style="float:right;" v-on:click="addCard" type="button" name="action">新增
+    <button class="btn waves-effect waves-light" style="float:right; margin-right: 20px;" v-on:click="addCard" type="button" name="action">新增
         <i class="material-icons right">add</i>
       </button>
+
     <br>
     <br>
   </div>

@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div style="margin-left: 10%; margin-right:10%">
     <h1>搜尋結果</h1>
     <button onclick="goBack()" class="btn waves-effect waves-light" type="button" name="button">返回</button>
     <!-- <button v-on:click="selectAllOrNot">全選</button> -->
@@ -23,11 +23,11 @@
         <table class="striped highlight centered">
           <thead>
             <tr>
-              <th>姓名</th>
-              <th>照片</th>
-              <th>現任職務</th>
-              <th>連結</th>
-              <th>匯出選取</th>
+              <th width="10%">姓名</th>
+              <th width="15%">照片</th>
+              <th style="width:auto;">現任職務</th>
+              <th width="8%">連結</th>
+              <th width="8%">匯出選取</th>
             </tr>
           </thead>
           <tbody id="table-body">
@@ -35,9 +35,11 @@
               <td></td>
               <td></td>
               <td></td>
-              <td><button v-on:click="exportData">下載</button></td>
               <td>
-                <button type="button" v-on:click="selectAllOrNot">全選</button>
+                <button class="btn waves-effect waves-light" v-on:click="exportData">下載</button>
+              </td>
+              <td>
+                <button class="btn waves-effect waves-light" type="button" v-on:click="selectAllOrNot">全選</button>
 
               </td>
             </tr>
