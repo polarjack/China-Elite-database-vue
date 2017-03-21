@@ -41,13 +41,25 @@ var people = new Vue({
           var self = this;
 
           var BOM = '\uFEFF';
-          var firstRow = [BOM + '姓名,rating,漢語拼音,出生地,專業頭銜,最高學歷,留學經驗,留學國家,現任職務,民族,出生,死亡,祖籍,政黨,入黨時間,共青團,連結,特殊關係,備註, 工作經歷'];
+
+          var firstRow = [BOM + '姓名,漢語拼音,出生地,專業頭銜,最高學歷,留學經驗,留學國家,現任職務,工作經歷,學習經歷,民族,出生,死亡,祖籍,政黨,入黨時間,共青團,連結,特殊關係,備註'];
           // var otherRows = self.people
           //     .filter(i => i.checked === true)
           //     .map(i => [i.name,i.score,i.pingyingname,i.hometown,i.profession,i.degree,i.abroadexp,i.abroadcountry,i.content.map(c => c.content).join('，'),i.race,i.birthday,i.alive,i.zuzhi,i.party,i.enterparty,i.gongchintuan,i.url,i.relation,i.other].join(','));
           var otherRows = self.people
             .filter(i => i.checked === true)
-            .map(i => [i.name,i.score,i.pingyingname,i.hometown,i.profession,i.degree,i.abroadexp,i.abroadcountry, i.currentStatusSet.map(c => c.content).join('，'),i.race,i.birthday,i.alive,i.zuzhi,i.party,i.enterparty,i.gongchintuan,i.url,i.relation,i.other, i.careerHistorySet.map(g => g.content).join(',')].join(','))
+            .map((i) => [i.name,i.pingyingname,
+              i.hometown,i.profession,i.degree,i.abroadexp,i.abroadcountry,
+              i.currentStatusSet.map((c) => {
+                return c.startTime.concat(" ").concat(c.endTime).concat(" ").concat(c.content);
+              }).join('，'),
+              i.careerHistorySet.map((c) =>{
+                return c.startTime.concat(" ").concat(c.endTime).concat(" ").concat(c.content);
+              }).join('，'),
+              i.studyHistorySet.map((c) => {
+                return c.startTime.concat(" ").concat(c.endTime).concat(" ").concat(c.content);
+              }).join('，'),
+              i.race ,i.birthday,i.alive,i.zuzhi,i.party,i.enterparty,i.gongchintuan,i.url,i.relation,i.other].join(','))
 
           var rows = firstRow.concat(otherRows)
           //
@@ -88,7 +100,7 @@ function generateBlobAndSave(contentArray, exportInfo) {
 jQuery(function () {
     var cards = JSON.parse(window.localStorage.getItem('card-search-cards'))
 
-    POST('//140.119.164.162:1081/cards', cards, function (res) {
+    POST('//140.119.164.155:1081/cards', cards, function (res) {
         people.people = res.map(function (r) {
             r.checked = false
             return r
