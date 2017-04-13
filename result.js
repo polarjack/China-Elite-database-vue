@@ -19,8 +19,6 @@ var people = new Vue({
     methods: {
       selectAllOrNot: function() {
                 var self = this;
-                console.log(self.people)
-                return;
                 // self.people.forEach(i => {
                 //   console.log(i)
                 // })
@@ -35,7 +33,6 @@ var people = new Vue({
                     });
                 }
                 self.allselected = !self.allselected;
-                console.log('here');
             },
         exportData: function() {
           var self = this;
@@ -88,7 +85,7 @@ function generateBlobAndSave(contentArray, exportInfo) {
 jQuery(function () {
     var cards = JSON.parse(window.localStorage.getItem('card-search-cards'))
 
-    POST('//140.119.164.162:1081/cards', cards, function (res) {
+    POST('//140.119.164.155:1081/cards', cards, function (res) {
         people.people = res.map(function (r) {
             r.checked = false
             return r
