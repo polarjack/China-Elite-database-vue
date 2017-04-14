@@ -87,7 +87,7 @@ function generateBlobAndSave(contentArray, exportInfo) {
   a.style = 'display: none';
 
   a.href = url;
-  a.download = Date.now() + '-' + exportInfo + '-中共菁英資料庫匯出.csv';
+  a.download = '中共菁英資料庫匯出'+Date.now() +'.csv';
   a.click();
 
   window.URL.revokeObjectURL(url);
