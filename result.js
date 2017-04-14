@@ -60,8 +60,8 @@ var people = new Vue({
       .filter(i => i.checked ==  true)
       .map((i) => [i.name, i.pingyingname, i.hometown, i.profession, i.degree, i.abroadexp, i.abroadcountry,
       i.currentStatusSet.map((c) => [c.startTime.concat("~@").concat(" ").concat(c.content)]).join(' || '),
-      i.careerHistorySet.map((c) => [c.startTime.concat("~@").concat(c.endTime).concat(" ").concat(c.content)]).join(' || '),
-      i.studyHistorySet.map((c) =>  [c.startTime.concat("~@").concat(c.endTime).concat(" ").concat(c.content)]).join(' || '),
+      i.careerHistorySet.map((c) => [c.startTime.concat("~").concat(c.endTime).concat(" ").concat(c.content)]).join(' || '),
+      i.studyHistorySet.map((c) =>  [c.startTime.concat("~").concat(c.endTime).concat(" ").concat(c.content)]).join(' || '),
       i.race,i.birthday+coma, i.alive, i.zuzhi, i.party, i.enterparty, i.gongchintuan, i.url, i.relation, i.other
       ].join(','))
 
