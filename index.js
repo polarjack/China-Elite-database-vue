@@ -52,6 +52,7 @@ jQuery(function () {
 			})
 		}))
 
-		window.location.href = window.location.origin + '/result.html'
-	})
+    //window.location.href = window.location.origin + '/result.html'
+    window.open(window.location.origin + '/result.html', '_blank')
+  })
 })
