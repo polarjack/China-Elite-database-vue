@@ -36,7 +36,7 @@ var people = new Vue({
 
       var BOM = '\uFEFF';
 
-      var firstRow = [BOM + '姓名,漢語拼音,出生地,專業頭銜,最高學歷,留學經驗,留學國家,現任職務,工作經歷,學習經歷,民族,出生,死亡,祖籍,政黨,入黨時間,共青團,資料庫連結,特殊關係,備註'];
+      var firstRow = [BOM + '姓名,漢語拼音,出生地,專業頭銜,最高學歷,留學經驗,留學國家,現任職務,工作經歷,學習經歷,民族,出生,死亡,祖籍,政黨,入黨時間,共青團,資料庫連結,特殊關係'];
 
       // unused code
       // var otherRows = self.people
@@ -62,11 +62,11 @@ var people = new Vue({
       i.currentStatusSet.map((c) => [c.startTime.concat("~@").concat(" ").concat(c.content)]).join(' || '),
       i.careerHistorySet.map((c) => [c.startTime.concat("~").concat(c.endTime).concat(" ").concat(c.content)]).join(' || '),
       i.studyHistorySet.map((c) =>  [c.startTime.concat("~").concat(c.endTime).concat(" ").concat(c.content)]).join(' || '),
-      i.race,i.birthday+coma, i.alive, i.zuzhi, i.party, i.enterparty, i.gongchintuan, i.url, i.relation, i.other
-      ].join(','))
+      i.race,i.birthday+coma, i.alive, i.zuzhi, i.party, i.enterparty, i.gongchintuan, i.url,i.relation
+      ].join(","))
 
       var rows = firstRow.concat(otherRows)
-      
+      console.log(rows)
       generateBlobAndSave(rows, "下載資料")
     }
   }
