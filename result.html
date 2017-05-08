@@ -51,7 +51,7 @@
               </td>
               <td style="max-width: 400px">{{ (person.currentStatusSet.map(function(statusSet){return statusSet.content}).join('\n')) }}</td>
               <td>
-                <a v-bind:href="person.url">連結</a>
+                <a target="_blank" v-bind:href="person.url">連結</a>
               </td>
               <td>
                 <input type="checkbox" v-model="person.checked" v-bind:id="pindex + '-checked'" class="filled-in">
