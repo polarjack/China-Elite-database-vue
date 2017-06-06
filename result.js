@@ -96,7 +96,7 @@ function generateBlobAndSave(contentArray, exportInfo) {
 jQuery(function() {
   var cards = JSON.parse(window.localStorage.getItem('card-search-cards'))
 
-  POST('//140.119.164.155:1081/cards', cards, function(res) {
+  POST('//cped.nccu.edu.tw:1081/cards', cards, function(res) {
     people.people = res.map(function(r) {
       r.checked = false
       return r
